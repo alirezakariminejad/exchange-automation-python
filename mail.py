@@ -1,18 +1,13 @@
 import smtplib
-from config import receive_mail
-
+from config import receiver_mail
 from email.mime.text import MIMEText
 
-sender = "Private Person <from@example.com>"
-receiver = "A Test User <to@example.com>"
 
-message = f"""\
-Subject: Hi Mailtrap
-To: {receiver}
-From: {sender}
-
-This is a test e-mail message."""
-
-with smtplib.SMTP("smtp.mailtrap.io", 2525) as server:
-    server.login("519fafc3271284", "a40a4f63e858d5")
-    server.sendmail(sender, receiver, message)
+def send_msg_smtp(subject, body):
+    msg = MIMEText(body)
+    msg["subject"] = subject
+    msg["to"] = receiver_mail
+    msg["from"] = "design@niafam.com"
+    with smtplib.SMTP("smtp.mailtrap.io", 2525) as mail_server:
+        mail_server.login("519fafc3271284", "a40a4f63e858d5")
+        mail_server.sendmail(msg["from"], msg["to"], msg.as_string())
