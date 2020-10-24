@@ -3,7 +3,7 @@ API_KEY = "74186fd800b83056bf66acc1901a7218"
 
 url = BASE_PATH + API_KEY
 
-receive_mail = "alireza.kariminejad@yahoo.com"
+receiver_mail = "alireza.kariminejad@yahoo.com"
 
 rules = {
     "archive": True,
