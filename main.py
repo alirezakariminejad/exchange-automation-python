@@ -1,5 +1,6 @@
 import requests
 import json
+from mail import send_msg_smtp
 from config import url, rules
 
 
@@ -23,12 +24,13 @@ def send_mail(timestamp, rates):
         for exch in rules["preferred_rates"]:
             temp_exc[exch] = rates[exch]
     rates = temp_exc
-    text = rates
+    text = json.dumps(rates)
+    send_msg_smtp(subject, text)
 
 
 if __name__ == "__main__":
     res = get_rates()
-    if rules["archiver"]:
+    if rules["archive"]:
         archive(res["timestamp"], res["rates"])
     if rules["send_mail"]:
         send_mail(res["timestamp"], res["rates"])
