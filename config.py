@@ -1,3 +1,4 @@
+from localConfig import PHONE_NUM
 BASE_PATH = "http://data.fixer.io/api/latest?access_key="
 API_KEY = "74186fd800b83056bf66acc1901a7218"
 
@@ -12,10 +13,10 @@ rules = {
     },
     "sms": {
         "enable": True,
-        "receiver_sms": "09123655055",
+        "receiver_sms": PHONE_NUM,
         "preferred_rates": {
-            "IRR": {"min": 80.059998, "max": 85.059990},
-            "BTN": {"min": 49782, "max": 50000}
+            "IRR": {"min": 48800.407586, "max": 50800.407586},
+            "BTN": {"min": 85.090735, "max": 84.090735}
         }
     },
 }
