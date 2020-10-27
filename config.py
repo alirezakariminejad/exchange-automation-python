@@ -12,7 +12,7 @@ rules = {
     },
     "sms": {
         "enable": True,
-        "receiver_mail": "09123655055",
+        "receiver_sms": "09123655055",
         "preferred_rates": {
             "IRR": {"min": 80.059998, "max": 85.059990},
             "BTN": {"min": 49782, "max": 50000}
